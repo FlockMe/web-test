@@ -12,6 +12,15 @@ type RequestClient struct {
  url string
 }
 
+func reqStatus(url string) RequestClient {
+ resp, err := http.Get(url)
+ if err != nil {
+  log.Fatal(err)
+ }
+
+ return resp.Status
+}
+
 func reqJSON(url string) RequestClient {
  resp, err := http.Get(url)
  if err != nil {
